@@ -73,7 +73,7 @@ def main():
 
    for smtpserver in smtpservers:
       message = MIMEMultipart("alternative")
-      message["Subject"] = "Proof-of-Concept // Open Mail Relay on "+ smtpserver
+      message["Subject"] = "Proof-of-Concept // Mail Relay on "+ smtpserver
       message["From"] = sender_email
       message["To"] = receiver_email
 
@@ -88,11 +88,13 @@ def main():
          <body>
             <div class='content'>
                <p>Dears,</p>
-               <p>if you receive this email, your SMTP server is vulnerable to<strong> Open Mail Relay</strong></p>
+               <p>if you receive this email, your SMTP server is potentially vulnerable to<strong> Mail Relaying</strong>.</p>
+               <p>The server either acts as an open relay or is susceptible to internal relaying.</p>
+               <p>If this e-mail was received in the inbox regularly, please check your SPF/DMARC/DKIM entries for your domain(s).</p>
                <p> Affected SMTP Server: """ + smtpserver + """</p>
                <p>Please forward this email to """ + contact_email + """</p>
                <p></p>         
-               <p>Have a good day</p>         
+               <p>Best Regards</p>         
          
                <br>
             </div>
